@@ -11,7 +11,7 @@
 
     <groupId>com.lccf.web</groupId>
     <artifactId>lccf-web</artifactId>
-
+    <packaging>war</packaging>
     <dependencies>
         <dependency>
             <groupId>com.lccf.service</groupId>

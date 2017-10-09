@@ -1,12 +1,23 @@
 package com.lccf.domain;
 
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-import java.io.Serializable;
+import lombok.Data;
 
 
 /**
@@ -15,6 +26,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "user")
+@Data
 public class User  implements Serializable {
 
     @Id
@@ -22,7 +34,6 @@ public class User  implements Serializable {
     private Long id;
 
     @NotNull
-    @Pattern(regexp = "^[a-z0-9]*$")
     @Column(name = "user_name",length = 50,unique = true,nullable = false)
     private String userName;
 
@@ -49,75 +60,20 @@ public class User  implements Serializable {
     @JsonIgnore
     private String activationKey;
 
-    @Column(name = "delete_flag")
+    @Column(name = "delete_flag" )
     private Boolean  deleteFlag;
-    public String getUserName() {
-        return userName;
-    }
+    /**
+     * 创建时间
+     */
+    @Column(name = "create_time")
+    @CreatedDate
+    private Date createTime;
+    /**
+     * 修改时间
+     */
+    @Column(name = "update_time")
+    @LastModifiedDate
+    private Date updateTime;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getRealName() {
-        return realName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getActivationKey() {
-        return activationKey;
-    }
-
-    public void setActivationKey(String activationKey) {
-        this.activationKey = activationKey;
-    }
-
-     public  Boolean getDeleteFlag(){
-         return  this.deleteFlag;
-     }
-    public void setDeleteFlag(Boolean deleteFlag) {
-        this.deleteFlag = deleteFlag;
-    }
 }

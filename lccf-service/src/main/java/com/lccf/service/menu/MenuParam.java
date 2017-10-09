@@ -2,11 +2,13 @@ package com.lccf.service.menu;
 
 import com.lccf.service.base.PageParam;
 import javax.persistence.Column;
+import lombok.Data;
 
 /**
  * @author lichangchao
  * @date 2017 -05-02 20:47:49
  */
+@Data
 public class MenuParam extends PageParam{
   private Long id;
   private String path;
@@ -18,75 +20,5 @@ public class MenuParam extends PageParam{
   private Long parentId;
   private Integer orderNum;
 
-  public Long getId() {
-    return id;
-  }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getIcon() {
-    return icon;
-  }
-
-  public void setIcon(String icon) {
-    this.icon = icon;
-  }
-
-  public Boolean getSelected() {
-    return selected;
-  }
-
-  public void setSelected(Boolean selected) {
-    this.selected = selected;
-  }
-
-  public Boolean getExpanded() {
-    return expanded;
-  }
-
-  public void setExpanded(Boolean expanded) {
-    this.expanded = expanded;
-  }
-
-  public Boolean getDeleteFlag() {
-    return deleteFlag;
-  }
-
-  public void setDeleteFlag(Boolean deleteFlag) {
-    this.deleteFlag = deleteFlag;
-  }
-
-  public Long getParentId() {
-    return parentId;
-  }
-
-  public void setParentId(Long parentId) {
-    this.parentId = parentId;
-  }
-
-  public Integer getOrderNum() {
-    return orderNum;
-  }
-
-  public void setOrderNum(Integer orderNum) {
-    this.orderNum = orderNum;
-  }
 }
