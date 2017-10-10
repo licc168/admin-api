@@ -9,6 +9,7 @@ import com.lccf.service.user.IUserService;
 import com.lccf.service.user.UserParam;
 import com.lccf.service.user.UserVo;
 import com.lccf.util.BeanMapper;
+import java.util.List;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import org.springframework.util.CollectionUtils;
 
 /**
  * @author lichangchao
@@ -47,7 +49,14 @@ public class UserServiceImpl extends BaseServiceImpl<User,UserParam,UserVo>  imp
         return  userRepository.findAll(Example.of(user),pageable);
     }
 
-
+    @Override
+    public User getByUserName(String userName) {
+       List<User> list =  userRepository.findByUserName(userName);
+       if(CollectionUtils.isEmpty(list)){
+           return  null;
+       }
+        return  list.get(0);
+    }
 
 
 }

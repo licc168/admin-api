@@ -25,5 +25,5 @@ public interface IUserService extends IBaseService<User,UserParam,UserVo> {
      */
     Page<User> page(UserParam userParam);
 
-
+    User  getByUserName(String userName);
 }
