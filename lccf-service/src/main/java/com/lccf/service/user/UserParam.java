@@ -14,7 +14,6 @@ import java.io.Serializable;
  */
 @Data
 public class UserParam extends PageParam implements Serializable {
-    private Long id;
     @NotNull(message = "用户名不能为空")
     @Pattern(regexp = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,10}$",message = "用户名必须是数字和字母组合 6-10位之间")
     private String userName;

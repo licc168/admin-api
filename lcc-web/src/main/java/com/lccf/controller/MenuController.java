@@ -1,7 +1,6 @@
 package com.lccf.controller;
 
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -64,6 +63,7 @@ public class MenuController extends BaseController {
     @ApiOperation(value = "新增菜单信息", httpMethod = "POST", response = String.class)
 
     public ResponseEntity<String> save(@RequestBody @ApiParam(value = "用户参数", required = true) MenuParam menuParam) {
+
         menuService.save(menuParam);
         return new ResponseEntity<String>("操作成功", HttpStatus.OK);
     }

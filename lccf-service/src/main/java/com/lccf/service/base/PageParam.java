@@ -1,5 +1,6 @@
 package com.lccf.service.base;
 
+import com.fasterxml.jackson.databind.ser.Serializers.Base;
 import lombok.Data;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -11,7 +12,7 @@ import org.springframework.data.domain.Sort;
  * @date 2017 -04-25 19:25:03
  */
 @Data
-public class PageParam {
+public class PageParam  extends BaseParam{
     private Integer page = 0;
     private Integer size = 10;
     private Sort sort;

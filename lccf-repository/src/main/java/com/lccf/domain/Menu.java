@@ -1,9 +1,23 @@
 package com.lccf.domain;
 
-import javax.persistence.*;
+import java.util.Date;
 import java.io.Serializable;
 import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 /**
  * @author lichangchao
@@ -41,11 +55,22 @@ public class Menu  implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL, optional = true)
 	@JoinColumn(referencedColumnName = "id", name = "parent_id", insertable = false, updatable = false)*/
 
-    @OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+    @OneToMany(fetch= FetchType.EAGER,cascade= CascadeType.ALL)
     @JoinColumn(name="parent_id")
     
     private Set<Menu> children;
-
+    /**
+     * 创建时间
+     */
+    @Column(name = "create_time")
+    @CreatedDate
+    private Date createTime;
+    /**
+     * 修改时间
+     */
+    @Column(name = "update_time")
+    @LastModifiedDate
+    private Date updateTime;
 
 
 }

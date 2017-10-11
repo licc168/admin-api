@@ -9,6 +9,7 @@ import com.lccf.service.user.IUserService;
 import com.lccf.service.user.UserParam;
 import com.lccf.service.user.UserVo;
 import com.lccf.util.BeanMapper;
+import java.util.Date;
 import java.util.List;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -38,6 +39,7 @@ public class UserServiceImpl extends BaseServiceImpl<User,UserParam,UserVo>  imp
         User user = BeanMapper.map(userParam, User.class);
         user.setStatus(EUserStatus.FREEZE.getKey());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setCreateTime(new Date());
         userRepository.save(user);
         return user;
     }
