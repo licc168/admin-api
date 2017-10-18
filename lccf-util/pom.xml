@@ -11,8 +11,26 @@
 
     <groupId>com.lccf.util</groupId>
     <artifactId>lccf-util</artifactId>
+    <properties>
+        <poi.version>3.13</poi.version>
+    </properties>
     <dependencies>
-
+        <!-- excel处理 -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
 
 
     </dependencies>
