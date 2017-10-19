@@ -494,7 +494,52 @@ public class ExcelUtil<T> {
         cell.setCellType(HSSFCell.CELL_TYPE_STRING);
         cell.setCellValue(value);
     }
+    /**
+     *
+     * 解析excel表格头信息
+     * @throws IOException
+     */
+    public   String[] paseExcelHead(String sheetName, InputStream input) throws Exception {
+        Workbook workbook = create(input);
+        Sheet sheet = workbook.getSheet(sheetName);
+        if (!sheetName.trim().equals("")) {
+            sheet = workbook.getSheet(sheetName);// 如果指定sheet名,则取指定sheet中的内容.
+        }
+        if (sheet == null) {
+            sheet = workbook.getSheetAt(0); // 如果传入的sheet名不存在则默认指向第1个sheet.
+        }
+        Row row = sheet.getRow(0);
+        int cells = row.getPhysicalNumberOfCells();
+        String[] excelHead = new String[cells];
+        for (int j = 0; j < cells; j++) {
+            Cell cell = row.getCell(j);
+            String c = parseExcel(cell, 0);
+            excelHead[j] = c;
+        }
+        return excelHead;
+    }
 
+
+    public  boolean viladHead(String sheetName, InputStream input,String[] defineHeads){
+        boolean b = true;
+        try {
+            String[] heads = this.paseExcelHead(sheetName,input);
+            if(defineHeads.length>heads.length){
+                return  false;
+            }
+            for(int i = 0;i<defineHeads.length;i++){
+                String defineHead =  defineHeads[i];
+                String head = heads[i];
+                if(!defineHead.equals(head)){
+                    b = false;
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return b;
+    }
     // 验证单元格数据
 
     public static ResJson validField(Field field, String value) {
