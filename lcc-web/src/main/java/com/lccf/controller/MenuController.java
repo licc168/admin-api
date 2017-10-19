@@ -29,8 +29,8 @@ import io.swagger.annotations.ApiParam;
  * @author lichangchao
  * @Time 2017-04-24 菜单管理
  */
-@RestController
 
+@RestController
 public class MenuController extends BaseController {
     @Resource
     IMenuService menuService;
