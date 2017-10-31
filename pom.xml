@@ -14,7 +14,7 @@
 		<module>lcc-web</module>
 		<module>lccf-service</module>
 		<module>lccf-util</module>
-
+		<module>lccf-test</module>
 	</modules>
 
 	<name>lccf</name>
@@ -228,6 +228,14 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.16.8</version>
+		</dependency>
+
+
+    <!--graphql-->
+		<dependency>
+			<groupId>com.graphql-java</groupId>
+			<artifactId>graphql-java</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 	</dependencies>
 
