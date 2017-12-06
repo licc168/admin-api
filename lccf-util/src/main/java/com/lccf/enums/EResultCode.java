@@ -3,7 +3,7 @@ package com.lccf.enums;
 /**
  * @author  lichangchao
  * @功能 统一返回码
- * @deprecated
+ *
  */
 public enum EResultCode {
     SUCCESS(200,"操作成功"),

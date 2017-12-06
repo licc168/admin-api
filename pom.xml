@@ -10,12 +10,11 @@
 
 
 	<modules>
-		<module>lccf-repository</module>
 		<module>lcc-web</module>
-		<module>lccf-service</module>
 		<module>lccf-util</module>
-		<module>lccf-test</module>
-	</modules>
+
+    <module>lccf-base</module>
+  </modules>
 
 	<name>lccf</name>
 	<description>lccf 基于springboot 搭建的框架</description>

@@ -3,6 +3,7 @@ package com.lccf.controller;
 import static graphql.schema.GraphQLArgument.newArgument;
 import static graphql.schema.GraphQLObjectType.newObject;
 
+import com.lccf.base.controller.BaseController;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lccf.controller.base.BaseController;
 import com.lccf.service.user.IUserService;
 
 import graphql.GraphQL;

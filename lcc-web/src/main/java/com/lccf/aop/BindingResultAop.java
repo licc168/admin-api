@@ -1,5 +1,6 @@
 package com.lccf.aop;
 
+import com.lccf.util.ResponseVoUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -41,7 +42,7 @@ public class BindingResultAop {
         if (bindingResult != null) {
             if (bindingResult.hasErrors()) {
                 String errorInfo = bindingResult.getFieldError().getDefaultMessage();
-                return new ResponseEntity<>(errorInfo, HttpStatus.INTERNAL_SERVER_ERROR);
+                return ResponseVoUtil.failResult(errorInfo);
             }
         }
         return joinPoint.proceed();

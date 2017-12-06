@@ -1,5 +1,7 @@
 package com.lccf.exception;
 
+import com.lccf.util.ResponseVo;
+import com.lccf.util.ResponseVoUtil;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -19,12 +21,11 @@ public class ExceptionTranslator {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public ResponseEntity<String> loginException(Exception e, HttpServletRequest request) {
+    public ResponseVo loginException(Exception e, HttpServletRequest request) {
         e.printStackTrace();
         logger.error(e.getMessage());
         String exceptionMsg = getException(e);
-        HttpStatus status = getStatus(request);
-        return new ResponseEntity(exceptionMsg, status);
+        return ResponseVoUtil.failResult(exceptionMsg);
     }
 
     /**
@@ -45,22 +46,5 @@ public class ExceptionTranslator {
 
     }
 
-    /**
-     * 获取错误编码
-     * 
-     * @param request
-     * @return
-     */
-    private HttpStatus getStatus(HttpServletRequest request) {
-        Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
-        if (statusCode == null) {
-            return HttpStatus.INTERNAL_SERVER_ERROR;
-        }
-        try {
-            return HttpStatus.valueOf(statusCode);
-        } catch (Exception ex) {
-            return HttpStatus.INTERNAL_SERVER_ERROR;
-        }
-    }
 
 }

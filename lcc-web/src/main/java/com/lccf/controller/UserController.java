@@ -4,9 +4,7 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lccf.controller.base.BaseController;
+import com.lccf.base.controller.BaseController;
 import com.lccf.domain.User;
 import com.lccf.service.user.IUserService;
 import com.lccf.service.user.UserParam;
+import com.lccf.util.ResponseVo;
+import com.lccf.util.ResponseVoUtil;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -36,9 +36,9 @@ public class UserController extends BaseController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST, produces = MediaType.TEXT_PLAIN_VALUE)
     @ApiOperation(value = "注册用户", httpMethod = "POST", response = String.class, notes = "注册接口（用户名/邮箱/密码）")
-    public ResponseEntity<String> register(@Valid @RequestBody @ApiParam(value = "用户参数", required = true) UserParam userParam) {
+    public ResponseVo register(@Valid @RequestBody @ApiParam(value = "用户参数", required = true) UserParam userParam) {
         userService.register(userParam);
-        return new ResponseEntity<String>("注册成功", HttpStatus.OK);
+        return ResponseVoUtil.successMsg("注册成功");
     }
 
     /**
@@ -48,12 +48,12 @@ public class UserController extends BaseController {
      */
     @RequestMapping(value = "/user/isExistsUserName", method = RequestMethod.GET)
     @ApiOperation(value = "验证用户名是否存在", httpMethod = "GET", response = String.class, notes = "判断用户名是否存在")
-    public ResponseEntity<?> isExistsUserName(@ApiParam(value = "用户名", required = true) @RequestParam String userName) {
+    public ResponseVo isExistsUserName(@ApiParam(value = "用户名", required = true) @RequestParam String userName) {
         User user = userService.getByUserName(userName);
         if (user == null) {
-            return new ResponseEntity(0, HttpStatus.OK);
+            return ResponseVoUtil.successData(0);
         }
-        return new ResponseEntity(1, HttpStatus.OK);
+        return ResponseVoUtil.successData(1);
     }
 
     /**
@@ -64,15 +64,15 @@ public class UserController extends BaseController {
      */
     @RequestMapping(value = "/user/page", method = RequestMethod.GET)
     @ApiOperation(value = "获取用户数据", httpMethod = "GET", response = Page.class, notes = "")
-    public ResponseEntity<Page<User>> page(@ApiParam(value = "用户参数", required = true) UserParam userParam) {
+    public ResponseVo page(@ApiParam(value = "用户参数", required = true) UserParam userParam) {
         Page<User> userPage = userService.page(userParam);
-        return new ResponseEntity<>(userPage, HttpStatus.OK);
+        return ResponseVoUtil.successData(userPage);
     }
 
     @RequestMapping(value = "/user/delete/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除用户", httpMethod = "DELETE", response = String.class, notes = "")
-    public ResponseEntity<String> deleteById(@ApiParam(value = "用户ID", required = true) @PathVariable Long id) {
+    public ResponseVo deleteById(@ApiParam(value = "用户ID", required = true) @PathVariable Long id) {
         userService.deleteById(id);
-        return new ResponseEntity<>("操作成功", HttpStatus.NO_CONTENT);
+        return ResponseVoUtil.successMsg("用户成功");
     }
 }
