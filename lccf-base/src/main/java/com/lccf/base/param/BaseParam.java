@@ -1,6 +1,7 @@
 package com.lccf.base.param;
 
 import java.util.Date;
+import lombok.Data;
 
 /**
  *
@@ -10,6 +11,7 @@ import java.util.Date;
  * @date 2017/10/11 18:14
  * @see
  */
+@Data
 public class BaseParam {
     private Long id;
     private Date createTime;
