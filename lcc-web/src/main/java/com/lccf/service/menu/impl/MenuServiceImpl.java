@@ -1,8 +1,8 @@
 package com.lccf.service.menu.impl;
 
+import com.lccf.base.service.impl.BaseServiceImpl;
 import com.lccf.domain.Menu;
 import com.lccf.repository.MenuRepostiory;
-import com.lccf.service.base.impl.BaseServiceImpl;
 import com.lccf.service.menu.IMenuService;
 import com.lccf.service.menu.MenuParam;
 import com.lccf.service.menu.MenuVo;

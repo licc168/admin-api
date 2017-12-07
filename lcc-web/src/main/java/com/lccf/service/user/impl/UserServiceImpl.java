@@ -1,6 +1,7 @@
 package com.lccf.service.user.impl;
 
 
+import com.lccf.base.service.impl.BaseServiceImpl;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +19,6 @@ import org.springframework.util.CollectionUtils;
 import com.lccf.domain.User;
 import com.lccf.enums.EUserStatus;
 import com.lccf.repository.UserRepository;
-import com.lccf.service.base.impl.BaseServiceImpl;
 import com.lccf.service.user.IUserService;
 import com.lccf.service.user.UserParam;
 import com.lccf.service.user.UserVo;
@@ -30,7 +30,7 @@ import com.lccf.util.BeanMapper;
  */
 @Service
 @Transactional
-public class UserServiceImpl extends BaseServiceImpl<User,UserParam,UserVo>  implements IUserService {
+public class UserServiceImpl extends BaseServiceImpl<User,UserParam,UserVo> implements IUserService {
     @Resource
     UserRepository userRepository;
     @Inject

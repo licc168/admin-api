@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.lccf</groupId>
+  <groupId>com.lccf.base</groupId>
   <artifactId>base</artifactId>
 
   <dependencies>

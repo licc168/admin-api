@@ -1,10 +1,11 @@
 package com.lccf.base.controller;
 
 import java.util.concurrent.TimeUnit;
+
 import javax.annotation.Resource;
+
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 
 @RequestMapping("api")

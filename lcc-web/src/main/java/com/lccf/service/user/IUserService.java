@@ -1,9 +1,9 @@
 package com.lccf.service.user;
 
-import com.lccf.domain.User;
-import com.lccf.service.base.IBaseService;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
+import com.lccf.base.service.IBaseService;
+import com.lccf.domain.User;
 
 /**
  * @author lichangchao

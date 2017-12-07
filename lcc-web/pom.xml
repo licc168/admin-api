@@ -12,16 +12,12 @@
     <groupId>com.lccf.web</groupId>
     <artifactId>lccf-web</artifactId>
     <packaging>war</packaging>
-    <dependencies>
-        <dependency>
-            <groupId>com.lccf.service</groupId>
-            <artifactId>lccf-service</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+  <dependencies>
+
       <dependency>
-        <groupId>com.lccf</groupId>
+        <groupId>com.lccf.base</groupId>
         <artifactId>base</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${project.version}</version>
       </dependency>
 
 

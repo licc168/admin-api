@@ -1,6 +1,7 @@
 
 package com.lccf;
 
+import com.lccf.config.apidoc.SwaggerConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -23,6 +24,7 @@ import com.lccf.util.SpringUtil;
     SpringUtil.class,
     WebSecurityConfig.class,
     LocaleConfiguration.class,
+    SwaggerConfiguration.class,
     MappingConfiguration.class
 
 })

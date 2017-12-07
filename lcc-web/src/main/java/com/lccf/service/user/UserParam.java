@@ -1,6 +1,6 @@
 package com.lccf.service.user;
 
-import com.lccf.service.base.PageParam;
+import com.lccf.base.service.PageParam;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import lombok.Data;

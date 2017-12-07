@@ -1,6 +1,6 @@
 package com.lccf.service.menu;
 
-import com.lccf.service.base.PageParam;
+import com.lccf.base.service.PageParam;
 import java.util.Date;
 import lombok.Data;
 /**
@@ -8,7 +8,7 @@ import lombok.Data;
  * @date 2017 -05-02 20:47:49
  */
 @Data
-public class MenuParam extends PageParam{
+public class MenuParam extends PageParam {
   private String path;
   private String title;
   private String icon;

@@ -33,7 +33,7 @@ import io.swagger.annotations.ApiParam;
  * @see
  */
 @RestController
-@RequestMapping("app")
+
 public class EmailController extends BaseController {
     @Resource
     JltEmailService jltEmailService;
