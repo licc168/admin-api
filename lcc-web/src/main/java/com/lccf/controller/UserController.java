@@ -34,7 +34,7 @@ public class UserController extends BaseController {
      * @param userParam
      * @see com.lccf.service.user.UserParam
      */
-    @RequestMapping(value = "/register", method = RequestMethod.POST, produces = MediaType.TEXT_PLAIN_VALUE)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ApiOperation(value = "注册用户", httpMethod = "POST", response = String.class, notes = "注册接口（用户名/邮箱/密码）")
     public ResponseVo register(@Valid @RequestBody @ApiParam(value = "用户参数", required = true) UserParam userParam) {
         userService.register(userParam);
@@ -51,9 +51,9 @@ public class UserController extends BaseController {
     public ResponseVo isExistsUserName(@ApiParam(value = "用户名", required = true) @RequestParam String userName) {
         User user = userService.getByUserName(userName);
         if (user == null) {
-            return ResponseVoUtil.successData(0);
+            return ResponseVoUtil.failResult(null);
         }
-        return ResponseVoUtil.successData(1);
+        return ResponseVoUtil.successData(null);
     }
 
     /**
