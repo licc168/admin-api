@@ -45,7 +45,7 @@ spring:
     redis:
        database: 0
        cluster:
-         nodes: 192.168.1.51:7001,192.168.1.51:7002,192.168.1.51:7003,192.168.1.51:7004,192.168.1.51:7005,192.168.1.51:7006
+         nodes: 192.168.0.1
        password:
        timeout: 0
        pool:
@@ -56,7 +56,7 @@ spring:
     mail:
       host: smtp.163.com
       username: licclife
-      password: 5998012
+      password: ********
       properties:
         mail:
          smtp:
