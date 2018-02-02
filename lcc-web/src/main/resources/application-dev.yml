@@ -56,7 +56,7 @@ spring:
     mail:
       host: smtp.163.com
       username: licclife
-      password: ********
+      password: 1111111
       properties:
         mail:
          smtp:
